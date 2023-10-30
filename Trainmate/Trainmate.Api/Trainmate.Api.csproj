@@ -16,11 +16,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\Trainmate.Repositories\Trainmate.Repositories.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Trainmate.Repositories\Trainmate.Repositories.csproj" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>
