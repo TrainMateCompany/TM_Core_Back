@@ -10,7 +10,7 @@ using Trainmate.Repositories.Entities;
 
 namespace Trainmate.Repositories.Context
 {
-    public class AppDbContext : IdentityDbContext<User>
+    public partial class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {

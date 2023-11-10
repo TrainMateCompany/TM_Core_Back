@@ -1,5 +1,7 @@
 ﻿
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Trainmate.Domain.Interfaces.Token;
@@ -21,7 +23,7 @@ namespace Trainmate.Domain.Implementation.Token
             {
                 new(ClaimTypes.PrimarySid, user.Id.ToString()),
                 new(ClaimTypes.Name, user.UserName),
-                new(ClaimTypes.Role, user.Role.Description),
+               // new(ClaimTypes.Role, user.Role.Description),
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("Jwt:Token").Value));

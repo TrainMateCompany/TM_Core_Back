@@ -1,9 +1,8 @@
-﻿using Bios_Back.Common.Dto;
-using Bios_Back.Common;
-using Bios_Back.Domain.Interfaces.Login;
-using Bios_Back.Domain.Interfaces.Token;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Trainmate.Common;
+using Trainmate.Common.Dto;
+using Trainmate.Domain.Interfaces.Login;
+using Trainmate.Domain.Interfaces.Token;
 
 namespace Bios_Back.Api.Controllers
 {

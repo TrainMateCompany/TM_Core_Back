@@ -7,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace Trainmate.Repositories.Entities
 {
-    public class User : IdentityUser
+    public partial class User : EntityBase
     {
+        public String UserName { get; set; }
+        public string? Email { get; set; }
+        public string? Password { get; set; }
+
     }
 }

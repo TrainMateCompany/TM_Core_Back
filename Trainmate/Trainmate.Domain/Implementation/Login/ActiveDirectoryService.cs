@@ -1,11 +1,5 @@
-﻿using Bios_Back.Common.Dto;
-using Bios_Back.Domain.Interfaces.Login;
-using Bios_Back.Repositories.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Trainmate.Common.Dto;
+using Trainmate.Domain.Interfaces.Login;
 
 namespace Bios_Back.Domain.Implementation.Login
 {
@@ -14,7 +8,8 @@ namespace Bios_Back.Domain.Implementation.Login
 
         private List<LoginDto> users;
 
-        public ActiveDirectoryService() {
+        public ActiveDirectoryService()
+        {
 
             users = new List<LoginDto>()
             {

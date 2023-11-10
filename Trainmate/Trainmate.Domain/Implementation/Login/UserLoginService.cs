@@ -1,6 +1,9 @@
-﻿using Trainmate.Domain.Interfaces.Login;
+﻿using FluentValidation;
+using Trainmate.Common.Dto;
+using Trainmate.Domain.Interfaces.Login;
 using Trainmate.Domain.Interfaces.Token;
 using Trainmate.Repositories.Entities;
+using Trainmate.Repositories.Repositories.Interfaces;
 
 namespace Trainmate.Domain.Implementation.Login
 {
@@ -36,19 +39,19 @@ namespace Trainmate.Domain.Implementation.Login
                 return result;
             }
 
-            var user = await Repository.FirstOfDefaultAsync(x => x.UserName == login.UserName, x => x.Role);
-            if (user == null)
-            {
-                result.Errors.Add("Usuario Invalido");
-                return result;
-            }
-            if (user.Active == false)
-            {
-                result.Errors.Add("Usuario Inactivo");
-                return result;
-            }
+           // var user = await Repository.FirstOfDefaultAsync(x => x.UserName == login.UserName, x => x.Role);
+            //if (user == null)
+            //{
+            //    result.Errors.Add("Usuario Invalido");
+            //    return result;
+            //}
+            //if (user.Active == false)
+            //{
+            //    result.Errors.Add("Usuario Inactivo");
+            //    return result;
+            //}
 
-            result.Result = _createTokenService.Execute(user);
+            //result.Result = _createTokenService.Execute(user);
 
             return result;
         }
