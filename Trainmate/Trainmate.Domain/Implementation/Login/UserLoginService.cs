@@ -40,18 +40,23 @@ namespace Trainmate.Domain.Implementation.Login
             }
 
            // var user = await Repository.FirstOfDefaultAsync(x => x.UserName == login.UserName, x => x.Role);
-            //if (user == null)
-            //{
-            //    result.Errors.Add("Usuario Invalido");
-            //    return result;
-            //}
+
+            User user = new User();
+            user.UserName= "test2";
+            user.Password= "000000";
+            
+            if (user == null)
+            {
+                result.Errors.Add("Usuario Invalido");
+                return result;
+            }
             //if (user.Active == false)
             //{
             //    result.Errors.Add("Usuario Inactivo");
             //    return result;
             //}
 
-            //result.Result = _createTokenService.Execute(user);
+            result.Result = _createTokenService.Execute(user);
 
             return result;
         }

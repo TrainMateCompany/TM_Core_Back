@@ -8,11 +8,11 @@
 
   <ItemGroup>
     <Folder Include="Enums\" />
-    <Folder Include="Validators\" />
     <Folder Include="Utils\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.8.0" />
     <PackageReference Include="Serilog" Version="3.1.0" />
   </ItemGroup>
 

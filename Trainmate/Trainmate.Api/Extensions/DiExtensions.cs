@@ -1,5 +1,9 @@
 ﻿
 
+using Bios_Back.Domain.Implementation.Login;
+using FluentValidation;
+using Trainmate.Common.Dto;
+using Trainmate.Common.Validators;
 using Trainmate.Domain.Implementation.Login;
 using Trainmate.Domain.Implementation.Token;
 using Trainmate.Domain.Interfaces.Login;
@@ -13,6 +17,10 @@ namespace Trainmate.Api.Extensions
     {
         public static void RegisterServices(this IServiceCollection services, WebApplicationBuilder? builder)
         {
+
+            // Fluent Validations
+            services.AddSingleton<IValidator<LoginDto>, LoginValidator>();
+
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddScoped<IUserRepository, UserRepository>();
 
@@ -21,6 +29,7 @@ namespace Trainmate.Api.Extensions
 
             services.AddTransient<IUserLoginService, UserLoginService>();
             services.AddTransient<ICreateTokenService, CreateTokenService>();
+            services.AddTransient<IActiveDirectoryService, ActiveDirectoryService>();
         }
     }
 }

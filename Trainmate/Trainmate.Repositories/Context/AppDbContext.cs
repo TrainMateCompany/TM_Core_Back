@@ -16,5 +16,6 @@ namespace Trainmate.Repositories.Context
         {
 
         }
+        public virtual DbSet<User> Users { get; set; }
     }
 }
