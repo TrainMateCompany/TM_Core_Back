@@ -15,11 +15,13 @@ namespace Trainmate.Api.Controllers
 
         private readonly ICreateTokenService _createTokenService;
         private readonly IConfiguration _configuration;
+        private readonly string token;
 
 
         public AuthenticationController(IUserLoginService userLoginService,
           ICreateTokenService createTokenService, IConfiguration configuration)
         {
+            token = configuration.GetSection("Jwt:Token")?.Value;
             _userLoginService = userLoginService;
             _createTokenService = createTokenService;
             _configuration = configuration;
@@ -38,7 +40,6 @@ namespace Trainmate.Api.Controllers
             {
                 return BadRequest(result.Errors);
             }
-        
             Logs.WriteInfoLog($"Login successful. User: [{login.UserName}].");
             return Ok(new
             {
