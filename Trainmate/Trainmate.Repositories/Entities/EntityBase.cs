@@ -17,7 +17,7 @@ namespace Trainmate.Repositories.Entities
 
         [Required]
         public DateTime CreationDate { get; set; } 
-        public DateTime UpdateDate { get; set; }
+   
 
         public bool Deleted { get; set; }
     }

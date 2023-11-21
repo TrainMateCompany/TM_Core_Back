@@ -11,6 +11,8 @@ namespace Trainmate.Domain.Interfaces.Login
     {
 
         Task<ResponseDto<string>> Execute(LoginDto login);
+        
+        // Task<bool> ValidateCredentialsAsync(string userName, string password);
 
     }
 }

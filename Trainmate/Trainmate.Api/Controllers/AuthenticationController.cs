@@ -4,7 +4,8 @@ using Trainmate.Common.Dto;
 using Trainmate.Domain.Interfaces.Login;
 using Trainmate.Domain.Interfaces.Token;
 
-namespace Bios_Back.Api.Controllers
+namespace Trainmate.Api.Controllers
+
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -37,13 +38,13 @@ namespace Bios_Back.Api.Controllers
             {
                 return BadRequest(result.Errors);
             }
-
+        
             Logs.WriteInfoLog($"Login successful. User: [{login.UserName}].");
             return Ok(new
             {
                 token = result.Result
             });
         }
-
+        
     }
 }

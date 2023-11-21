@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Trainmate.Api.Extensions;
 using Trainmate.Repositories.Context;
 using Trainmate.Repositories.Entities;
+using Trainmate.Repositories.Repositories.Implementation;
 
 var builder = WebApplication.CreateBuilder(args);
 

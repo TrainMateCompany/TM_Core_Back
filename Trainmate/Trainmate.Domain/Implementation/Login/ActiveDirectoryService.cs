@@ -1,28 +1,25 @@
 ﻿using Trainmate.Common.Dto;
 using Trainmate.Domain.Interfaces.Login;
+using Trainmate.Repositories.Repositories.Implementation;
+using Trainmate.Repositories.Repositories.Interfaces;
+using Trainmate.Repositories.Repositories.Implementation; 
 
-namespace Bios_Back.Domain.Implementation.Login
+// namespace Bios_Back.Domain.Implementation.Login
+namespace Trainmate.Domain.Implementation.Login
 {
     public class ActiveDirectoryService : IActiveDirectoryService
     {
 
-        private List<LoginDto> users;
+        private readonly IUserRepository _userRepository;
 
-        public ActiveDirectoryService()
+        public ActiveDirectoryService(IUserRepository userRepository)
         {
-
-            users = new List<LoginDto>()
-            {
-                new LoginDto { UserName = "test", Password = "123456" },
-                new LoginDto { UserName = "test2", Password = "000000" },
-                new LoginDto { UserName = "super_admin", Password = "000000" }
-            };
-
+           _userRepository = userRepository;
         }
 
         public bool Execute(LoginDto login)
         {
-            var user = users.FirstOrDefault(u => u.UserName == login.UserName && u.Password == login.Password);
+            var user = _userRepository.ValidateCredentials( login.UserName ,login.Password);
 
             if (user == null)
                 return false;
