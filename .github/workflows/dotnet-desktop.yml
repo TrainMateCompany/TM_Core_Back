@@ -19,3 +19,17 @@ jobs:
       # You can test your matrix by printing the current dotnet version
       - name: Display dotnet version
         run: dotnet --version
+
+        
+      # Aquí van tus pasos de construcción y compilación
+
+      - name: Obtener URL de Despliegue
+        run: |
+          # Agrega aquí los comandos para desplegar tu proyecto y obtener la URL de despliegue
+          # Por ejemplo, si estás utilizando GitHub Pages
+          DEPLOY_URL="https://$GITHUB_ACTOR.github.io/$GITHUB_REPOSITORY"
+          echo "La URL de despliegue es: $DEPLOY_URL"
+
+      # Puedes probar tu matriz imprimiendo la versión actual de dotnet
+      - name: Display dotnet version
+        run: dotnet --version
