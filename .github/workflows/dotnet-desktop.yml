@@ -20,6 +20,24 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
       # You can test your matrix by printing the current dotnet version
+
+  # Aquí van tus pasos de construcción y compilación
+
+      - name: Iniciar aplicación en localhost
+        run: |
+          # Encuentra un puerto libre disponible
+          PORT=$(shuf -i 8000-9999 -n 1)
+          echo "Usando el puerto: $PORT"
+          
+          # Agrega aquí los comandos para iniciar tu aplicación en localhost
+          # Por ejemplo, si estás utilizando dotnet
+          dotnet run --project TuProyecto --urls http://localhost:$PORT
+
+      - name: Obtener URL de Despliegue
+        run: |
+          LOCALHOST_URL="http://localhost:$PORT"
+          echo "La aplicación está disponible en: $LOCALHOST_URL"
+      
       - name: Display dotnet version
         run: dotnet --version
 
