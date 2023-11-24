@@ -28,7 +28,7 @@ jobs:
         run: dotnet build
 
       - name: Generate Swagger JSON
-        run: dotnet swagger tofile --output ./swagger.json Mi App
+        run: dotnet swagger tofile --output ./swagger.json Trainmate.Api.Controllers
 
       - name: Commit Swagger JSON file
         run: git add swagger.json
