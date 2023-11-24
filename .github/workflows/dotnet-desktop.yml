@@ -27,8 +27,8 @@ jobs:
         run: |
           # Agrega aquí los comandos para desplegar tu proyecto y obtener la URL de despliegue
           # Por ejemplo, si estás utilizando GitHub Pages
-          DEPLOY_URL="https://$GITHUB_ACTOR.github.io/$GITHUB_REPOSITORY"
-          echo "La URL de despliegue es: $DEPLOY_URL"
+          $deployUrl = "https://$env:GITHUB_ACTOR.github.io/$env:GITHUB_REPOSITORY"
+          echo "La URL de despliegue es: $deployUrl"
 
       # Puedes probar tu matriz imprimiendo la versión actual de dotnet
       - name: Display dotnet version
