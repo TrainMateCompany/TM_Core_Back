@@ -21,3 +21,9 @@ jobs:
       # You can test your matrix by printing the current dotnet version
       - name: Display dotnet version
         run:  '6.0.x' 
+    
+    - name: Build
+      run: dotnet build --no-restore
+      
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
