@@ -29,9 +29,9 @@ jobs:
 
       - name: Generate Swagger JSON
         run: dotnet swagger tofile --output ./swagger.json Trainmate.Api.Controllers
-
-      - name: Commit Swagger JSON file
-        run: git add swagger.json
+      
+      - name: Verificar contenido del directorio
+        run: ls -R
 
       - name: Push changes to the repository
         run: git commit -m "Update Swagger documentation" -a
