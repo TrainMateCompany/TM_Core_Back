@@ -1,28 +1,42 @@
 name: dotnet package
 
 on: 
- push:
+  push:
     branches:
       - 'feature/connection_repositorie'
 
 jobs:
   build:
-  
     runs-on: self-hosted
     strategy:
       matrix:
         dotnet-version: ['6.0.x']
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
       - name: Setup dotnet ${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
-      # You can test your matrix by printing the current dotnet version
-     
-      - name: Display dotnet version
-        run: dotnet --version
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build
+
+      - name: Generate Swagger JSON
+        run: dotnet swagger tofile --output ./swagger.json Your.Api.Assembly.dll
+
+      - name: Commit Swagger JSON file
+        run: git add swagger.json
+
+      - name: Push changes to the repository
+        run: git commit -m "Update Swagger documentation" -a
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Obtener URL de Despliegue
         run: |
