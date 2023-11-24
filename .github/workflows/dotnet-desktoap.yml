@@ -1,0 +1,49 @@
+name: dotnet package Test
+
+on: 
+  push:
+    branches:
+      - 'feature/connection_repositorie'
+
+jobs:
+  build:
+    runs-on: self-hosted
+    strategy:
+      matrix:
+        dotnet-version: ['6.0.x']
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup dotnet ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build
+
+      - name: Generate Swagger JSON
+        run: dotnet swagger tofile --output ./swagger.json Trainmate.Api.Controllers
+      
+      - name: Verificar contenido del directorio
+        run: ls -R
+
+      - name: Push changes to the repository
+        run: git commit -m "Update Swagger documentation" -a
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Obtener URL de Despliegue
+        run: |
+          # Agrega aquí los comandos para desplegar tu proyecto y obtener la URL de despliegue
+          # Por ejemplo, si estás utilizando GitHub Pages
+          $deployUrl = "https://$env:GITHUB_ACTOR.github.io/$env:GITHUB_REPOSITORY"
+          echo "La URL de despliegue es: $deployUrl"
+
+      - name: Display dotnet version
+        run: dotnet --version
