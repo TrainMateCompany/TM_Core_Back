@@ -1,7 +1,3 @@
-trigger:
-  branches:
-    - 'nombre_de_tu_rama'
-
 steps:
   - name: 'mcr.microsoft.com/dotnet/core/sdk:6.0'
     entrypoint: 'bash'
