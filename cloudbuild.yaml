@@ -4,6 +4,7 @@ steps:
     args:
       - '-c'
       - |
+        cd Trainmate/Trainmate.Api  # Ajusta esto a la ruta correcta
         dotnet restore
         dotnet build
         dotnet publish -c Release -o out
