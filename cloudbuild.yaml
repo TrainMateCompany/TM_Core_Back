@@ -1,0 +1,25 @@
+trigger:
+  branches:
+    - 'nombre_de_tu_rama'
+
+steps:
+  - name: 'mcr.microsoft.com/dotnet/core/sdk:6.0'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        dotnet restore
+        dotnet build
+        dotnet publish -c Release -o out
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'app'
+      - 'deploy'
+      - 'app.yaml'
+      - '--version'
+      - '$COMMIT_SHA'
+
+substitutions:
+  _DOTNET_VERSION: '6.0'
+  COMMIT_SHA: '$SHORT_SHA'
