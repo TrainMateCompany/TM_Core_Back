@@ -17,5 +17,5 @@ steps:
       - '$COMMIT_SHA'
 
 substitutions:
-  _DOTNET_VERSION: '6.0'
+  _DOTNET_VERSION: '3.1'
   COMMIT_SHA: '$SHORT_SHA'
