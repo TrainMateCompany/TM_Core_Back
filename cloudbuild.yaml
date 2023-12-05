@@ -1,5 +1,5 @@
 steps:
-  - name: 'mcr.microsoft.com/dotnet/core/sdk:6.0'
+  - name: 'mcr.microsoft.com/dotnet/core/sdk:6.x'
     entrypoint: 'bash'
     args:
       - '-c'
@@ -18,5 +18,5 @@ steps:
       - '$COMMIT_SHA'
 
 substitutions:
-  _DOTNET_VERSION: '6.0'
+  _DOTNET_VERSION: '6.x'
   COMMIT_SHA: '$SHORT_SHA'
