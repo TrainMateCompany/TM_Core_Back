@@ -1,5 +1,5 @@
 steps:
-  - name: 'mcr.microsoft.com/dotnet/core/sdk:6.0'
+  - name: 'mcr.microsoft.com/dotnet/core/sdk:6.0-focal'
     entrypoint: 'bash'
     args:
       - '-c'
