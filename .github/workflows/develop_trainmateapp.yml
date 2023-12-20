@@ -54,4 +54,4 @@ jobs:
           app-name: 'TrainMateApp'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_274B3AC195AF40AB9EC24320AB84E06F }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0AC8D19C557941948DA2643589714F9F }}
