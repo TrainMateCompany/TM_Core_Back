@@ -4,7 +4,8 @@ using Trainmate.Common.Dto;
 using Trainmate.Domain.Interfaces.Login;
 using Trainmate.Domain.Interfaces.Token;
 
-namespace Bios_Back.Api.Controllers
+namespace Trainmate.Api.Controllers
+
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -14,11 +15,13 @@ namespace Bios_Back.Api.Controllers
 
         private readonly ICreateTokenService _createTokenService;
         private readonly IConfiguration _configuration;
+        private readonly string token;
 
 
         public AuthenticationController(IUserLoginService userLoginService,
           ICreateTokenService createTokenService, IConfiguration configuration)
         {
+            token = configuration.GetSection("Jwt:Token")?.Value;
             _userLoginService = userLoginService;
             _createTokenService = createTokenService;
             _configuration = configuration;
@@ -37,13 +40,12 @@ namespace Bios_Back.Api.Controllers
             {
                 return BadRequest(result.Errors);
             }
-
             Logs.WriteInfoLog($"Login successful. User: [{login.UserName}].");
             return Ok(new
             {
                 token = result.Result
             });
         }
-
+        
     }
 }

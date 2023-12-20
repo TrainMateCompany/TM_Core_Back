@@ -1,6 +1,6 @@
 ﻿
 
-using Bios_Back.Domain.Implementation.Login;
+using Trainmate.Domain.Implementation.Login;
 using FluentValidation;
 using Trainmate.Common.Dto;
 using Trainmate.Common.Validators;

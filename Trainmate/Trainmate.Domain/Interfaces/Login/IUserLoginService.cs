@@ -11,6 +11,7 @@ namespace Trainmate.Domain.Interfaces.Login
     {
 
         Task<ResponseDto<string>> Execute(LoginDto login);
+        
 
     }
 }

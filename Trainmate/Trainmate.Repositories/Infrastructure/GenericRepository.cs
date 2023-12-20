@@ -146,6 +146,7 @@ namespace Trainmate.Repositories.Infrastructure
             }
         }
 
+    
         public async Task<int> SoftDelete(T entity)
         {
             try
@@ -174,6 +175,14 @@ namespace Trainmate.Repositories.Infrastructure
 
             return await query.ToListAsync();
 
+        }
+        
+        public async Task<bool> ValidateCredentialsAsync(string userName, string password)
+        {
+            var user = await Context.Users
+                .FirstOrDefaultAsync(u => u.UserName == userName && u.Password == password);
+
+            return user != null;
         }
 
         protected virtual void Dispose(bool disposing)
