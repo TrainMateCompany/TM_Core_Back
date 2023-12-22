@@ -11,6 +11,7 @@ namespace Trainmate.Repositories.Entities
     {
         public String UserName { get; set; }
         public string? Email { get; set; }
+        public string? CellPhone { get; set; }
         public string? Password { get; set; }
         public string? address { get; set; }
         

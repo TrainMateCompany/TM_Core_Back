@@ -31,6 +31,9 @@ namespace Trainmate.Repositories.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("CellPhone")
+                        .HasColumnType("text");
+
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("timestamp with time zone");
 
@@ -45,6 +48,9 @@ namespace Trainmate.Repositories.Migrations
 
                     b.Property<string>("UserName")
                         .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("address")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
