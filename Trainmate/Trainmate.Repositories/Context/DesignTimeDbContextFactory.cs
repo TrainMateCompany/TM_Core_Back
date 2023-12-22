@@ -10,7 +10,7 @@ namespace Trainmate.Repositories.Context
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
+                .AddJsonFile("appsettingss.json")
                 .Build();
 
             var builder = new DbContextOptionsBuilder<AppDbContext>();
