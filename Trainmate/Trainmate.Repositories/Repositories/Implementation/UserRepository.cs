@@ -10,7 +10,6 @@ namespace Trainmate.Repositories.Repositories.Implementation
     public class UserRepository : GenericRepository<User>, IUserRepository
 
     {
-    // private IUserRepository _userRepositoryImplementation;
 
     public UserRepository(AppDbContext context) : base(context)
     {
@@ -34,6 +33,13 @@ namespace Trainmate.Repositories.Repositories.Implementation
         var user = Context.Users.FirstOrDefault(u => u.UserName == userName && u.Password == password);
         return user;
 
+    }
+
+    public async Task<User> Save(User user)
+    {
+        var entityEntry = await Context.Users.AddAsync(user);
+        await Context.SaveChangesAsync();
+        return entityEntry.Entity;
     }
 
     //async Task<Tuple<int, IQueryable<UserDto>>> IUserRepository.GetAllUserQuery(GetAllUserRequestDto request)

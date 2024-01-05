@@ -6,6 +6,8 @@ using Trainmate.Common.Dto;
 using Trainmate.Common.Validators;
 using Trainmate.Domain.Implementation.Login;
 using Trainmate.Domain.Implementation.Token;
+using Trainmate.Domain.Implementation.UserImp;
+using Trainmate.Domain.Interfaces.IUser;
 using Trainmate.Domain.Interfaces.Login;
 using Trainmate.Domain.Interfaces.Token;
 using Trainmate.Repositories.Repositories.Implementation;
@@ -30,6 +32,7 @@ namespace Trainmate.Api.Extensions
             services.AddTransient<IUserLoginService, UserLoginService>();
             services.AddTransient<ICreateTokenService, CreateTokenService>();
             services.AddTransient<IActiveDirectoryService, ActiveDirectoryService>();
+            services.AddTransient<ISaveUserService, SaveUserService>();
         }
     }
 }

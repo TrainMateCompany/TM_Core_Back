@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using Trainmate.Domain.Contract;
+using Trainmate.Domain.Interfaces;
 using Trainmate.Repositories.Entities;
 using Trainmate.Repositories.Infrastructure;
 

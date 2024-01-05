@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Trainmate.Repositories.Entities;
 
-namespace Trainmate.Domain.Contract
+namespace Trainmate.Domain.Interfaces
 {
     public interface IDomainBase<T> where T : EntityBase
     {

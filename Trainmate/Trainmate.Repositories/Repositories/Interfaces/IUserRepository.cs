@@ -7,5 +7,7 @@ namespace Trainmate.Repositories.Repositories.Interfaces
     {
         User GetUserByUserName(string userName);
         User ValidateCredentials(string userName, string password);
+
+        Task<User> Save(User user);
     }
 }
